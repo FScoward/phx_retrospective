@@ -52,7 +52,12 @@ config :phoenix, :stacktrace_depth, 20
 config :phx_retrospective, PhxRetrospective.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
-  password: "",
+  password: "hogehoge",
   database: "phx_retrospective_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :oauth2_google, Google,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET"),
+  redirect_uri: System.get_env("GOOGLE_REDIRECT_URI")

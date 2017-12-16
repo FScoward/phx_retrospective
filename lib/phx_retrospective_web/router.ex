@@ -17,6 +17,16 @@ defmodule PhxRetrospectiveWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/signup", UserController
+  end
+
+  scope "/auth", PhxRetrospectiveWeb do
+    pipe_through :browser
+
+    get "/:provider", UserController, :index
+    get "/:provider/callback", UserController, :callback
+    delete "/logout", UserController, :delete
   end
 
   # Other scopes may use custom stacks.

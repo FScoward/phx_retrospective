@@ -22,9 +22,10 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-config :oauth2,
+config :oauth2, debug: true,
   serializers: %{
     "application/vnd.api+json" => Poison,
+    "application/json" => Poison,
   }
 
 # Import environment specific config. This must remain at the bottom
